@@ -57,7 +57,7 @@ class Form {
         foreach ($this->_inputs as $input) {
             echo $input->render();
         }
-        echo "</ol><li><button type='submit'>Submit</button>
+        echo "<li><button type='submit'>Submit</button></li></ol>
           <input type='hidden' name='_token' value='".csrf_token()."' /></form>";
     }
 }
