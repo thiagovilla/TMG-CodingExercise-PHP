@@ -24,7 +24,7 @@
                 // display user info
                 $firstName = $form->getValue("firstname");
                 $lastName = $form->getValue("lastname");
-                echo $firstName." ".$lastName;
+                echo "<div class='hello'>{$firstName} {$lastName}</div>";
             } else {
                 $form->display();
             }
