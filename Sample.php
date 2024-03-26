@@ -1,4 +1,6 @@
 <?php
+    error_reporting(E_ERROR | E_PARSE); // suppress warnings
+
     require_once("Form.php");
     require_once("Input.php");
     require_once("TextInput.php");
