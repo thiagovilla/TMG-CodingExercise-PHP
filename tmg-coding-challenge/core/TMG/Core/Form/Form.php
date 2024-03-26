@@ -43,10 +43,11 @@ class Form {
      *  draws the outer form element, and the markup for each input, one input per row
      */
     public function display() {
-        echo "<form><ol>";
+        echo "<form method='post'><ol>";
         foreach ($this->_inputs as $input) {
             echo $input->render();
         }
-        echo "</ol></form>";
+        echo "</ol><li><button type='submit'>Submit</button>
+          <input type='hidden' name='_token' value='".csrf_token()."' /></form>";
     }
 }

@@ -6,4 +6,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/sample', 'sample');
+Route::match(array('GET', 'POST'), '/sample', function () {
+    return view('sample');
+});
