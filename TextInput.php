@@ -9,6 +9,12 @@ final class TextInput extends Input {
           return false;
         }
       }
+      if ($this->_options["min"]) {
+        if (strlen($this->_initVal) < $this->_options["min"]) {
+          $this->_error = "Must be at lest {$this->_options["min"]} characters.";
+          return false;
+        }
+      }
       return true;
     }
 
