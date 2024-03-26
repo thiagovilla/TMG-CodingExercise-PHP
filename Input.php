@@ -4,14 +4,14 @@ abstract class Input {
     protected $_name;
     protected $_label;
     protected $_initVal;
-    protected $_errors = array();
+    protected $_error = "";
 
     protected $_options;
-
+    
+    abstract public function validate();
     abstract protected function _renderSetting();
     abstract protected function _render();
-    abstract protected function _validate();
-
+    
     public function __construct($name, $label, $initVal = "", $options = array("required" => true)) {
         $this->_name = $name;
         $this->_label = $label;
@@ -34,9 +34,7 @@ abstract class Input {
     public function render() {
         echo "<li><label for='{$this->_name}'>{$this->_label}</label><div>";
         $this->_render();
-        if (count($this->_errors) > 0) {
-            echo "<ul class='errors'>".array_reduce($this->_errors, fn($list, $item) => $list .= "<li>{$item}</li>", "")."</ul>";
-        }
+        if (!empty($this->_error)) echo "<p class='error'>{$this->_error}</p>";
         echo "</div></li>";
     }
 
@@ -45,13 +43,5 @@ abstract class Input {
      */
     public function getValue() {
         return $this->_initVal;
-    }
-
-    /**
-     * validates the current input value
-     */
-    public function validate() {
-        $this->_validate();
-        return count($this->_errors) < 1;
     }
 }

@@ -2,12 +2,14 @@
 
 final class TextInput extends Input {
     
-    protected function _validate() {
+    public function validate() {
       if ($this->_options["required"]) {
         if ($this->_initVal === null || $this->_initVal === "") {
-          array_push($this->_errors, "Field must not be empty.");
+          $this->_error = "Field must not be empty.";
+          return false;
         }
       }
+      return true;
     }
 
     public function _renderSetting() {
