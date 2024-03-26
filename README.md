@@ -5,7 +5,7 @@
 Run the following command in the project root:
 
 ```sh
-docker compose up -d nginx
+php -S localhost:9000
 ```
 
-Now go to `https://localhost/sample`.
+Now go to `https://localhost/Sample.php`.
