@@ -1,14 +1,12 @@
 <?php
-    error_reporting(E_ERROR | E_PARSE); // suppress warnings
-
     require_once("Form.php");
     require_once("Input.php");
     require_once("TextInput.php");
 
     $form = new Form();
 
-    $form->addInput(new TextInput("firstname", "First Name", $_POST["firstname"]));
-    $form->addInput(new TextInput("lastname", "Last Name", $_POST["lastname"]));
+    $form->addInput(new TextInput("firstname", "First Name", key_exists("firstname", $_POST) ? $_POST["firstname"] : ""));
+    $form->addInput(new TextInput("lastname", "Last Name", key_exists("lastname", $_POST) ? $_POST["lastname"] : ""));
 ?>
 
 <!DOCTYPE html>
