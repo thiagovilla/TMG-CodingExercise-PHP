@@ -8,4 +8,4 @@ Run the following command in the project root:
 php -S localhost:9000
 ```
 
-Now go to `https://localhost/Sample.php`.
+Now go to `https://localhost:9000/Sample.php`.
