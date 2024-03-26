@@ -5,13 +5,10 @@ use TMG\Core\Form\TextInput;
 
 $form = new Form(csrf_token());
 
-$form->addInput(new TextInput("firstname", "First Name"));
-$form->addInput(new TextInput("lastname", "Last Name"));
+$form->addInput(new TextInput("firstname", "First Name", Request::post("firstname") ?? ""));
+$form->addInput(new TextInput("lastname", "Last Name", Request::post("lastname") ?? ""));
 
 if (Request::isMethod("POST")) {
-    $form->setValue("firstname", Request::post("firstname") ?? "");
-    $form->setValue("lastname", Request::post("lastname") ?? "");
-
     if ($form->validate()) {
         // display user info
         $firstName = $form->getValue("firstname");
