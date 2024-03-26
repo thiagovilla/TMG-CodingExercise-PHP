@@ -40,6 +40,16 @@ class Form {
     }
 
     /**
+     * sets the value of the input by $name
+     */
+    public function setValue($name, $value) {
+        if (!array_key_exists($name, $this->_inputs)) {
+            throw new Error("ERR_INPUT_NOT_FOUND");
+        }
+        $this->_inputs[$name]->setValue($value);
+    }
+
+    /**
      *  draws the outer form element, and the markup for each input, one input per row
      */
     public function display() {

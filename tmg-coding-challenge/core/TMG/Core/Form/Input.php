@@ -5,15 +5,17 @@ abstract class Input {
     protected string $_name;
     protected string $_label;
     protected string $_initVal;
+    protected string $_value;
 
     abstract public function validate();
     abstract protected function _renderSetting();
     abstract protected function _render();
 
-    public function __construct($name, $label, $initVal) {
+    public function __construct($name, $label, $initVal = "") {
         $this->_name = $name;
         $this->_label = $label;
         $this->_initVal = $initVal;
+        $this->_value = $this->_initVal;
     }
 
     /**
@@ -38,6 +40,13 @@ abstract class Input {
      * returns the current value managed by this input
      */
     public function getValue() {
-        return $this->_initVal;
+        return $this->_value;
+    }
+
+    /**
+     * sets the current value managed by this input
+     */
+    public function setValue($value) {
+        $this->_value = $value;
     }
 }
