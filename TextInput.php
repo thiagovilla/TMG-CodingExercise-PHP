@@ -14,6 +14,6 @@ final class TextInput extends Input {
     }
 
     public function _render() {
-      echo "<input type='text' id='{$this->_name}' value='{$this->getValue()}'>";
+      echo "<input type='text' id='{$this->_name}' name='{$this->_name}' value='{$this->getValue()}'>";
     }
 }
