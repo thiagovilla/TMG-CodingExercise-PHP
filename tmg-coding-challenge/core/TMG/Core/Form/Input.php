@@ -1,4 +1,6 @@
 <?php
+
+namespace TMG\Core\Form;
 abstract class Input {
     protected string $_name;
     protected string $_label;

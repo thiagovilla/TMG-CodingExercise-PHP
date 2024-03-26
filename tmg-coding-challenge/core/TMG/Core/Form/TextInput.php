@@ -1,4 +1,7 @@
 <?php
+
+namespace TMG\Core\Form;
+
 final class TextInput extends Input {
     
     public function validate() {

@@ -1,4 +1,9 @@
 <?php
+
+namespace TMG\Core\Form;
+
+use TMG\Core\Form\Input;
+
 class Form {
 
     protected $_inputs;
