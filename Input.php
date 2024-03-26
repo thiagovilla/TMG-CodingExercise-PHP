@@ -6,17 +6,17 @@ abstract class Input {
     protected $_initVal;
     protected $_error = "";
 
-    protected $_options;
+    protected $_options = array("required" => true);
     
     abstract public function validate();
     abstract protected function _renderSetting();
     abstract protected function _render();
     
-    public function __construct($name, $label, $initVal = "", $options = array("required" => true)) {
+    public function __construct($name, $label, $initVal = "", $options = array()) {
         $this->_name = $name;
         $this->_label = $label;
         $this->_initVal = $initVal;
-        $this->_options = $options;
+        $this->_options = array_merge($this->_options, $options);
     }
 
     /**
