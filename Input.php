@@ -29,12 +29,12 @@ abstract class Input {
      *  html form element is displayed (such as a text box, radio button, select, etc)
      */
     public function render() {
-        echo "<li><label for='{$this->_name}'>{$this->_label}</label>";
+        echo "<li><label for='{$this->_name}'>{$this->_label}</label><div>";
         $this->_render();
         if (count($this->_errors) > 0) {
             echo "<ul class='errors'>".array_reduce($this->_errors, fn($list, $item) => $list .= "<li>{$item}</li>", "")."</ul>";
         }
-        echo "</li>";
+        echo "</div></li>";
     }
 
     /**
