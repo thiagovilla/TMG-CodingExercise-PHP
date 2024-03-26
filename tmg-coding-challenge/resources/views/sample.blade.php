@@ -3,7 +3,7 @@
 use TMG\Core\Form\Form;
 use TMG\Core\Form\TextInput;
 
-$form = new Form();
+$form = new Form(csrf_token());
 
 $form->addInput(new TextInput("firstname", "First Name"));
 $form->addInput(new TextInput("lastname", "Last Name"));

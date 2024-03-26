@@ -6,10 +6,13 @@ use TMG\Core\Form\Input;
 
 class Form {
 
+    private $_token;
+
     protected $_inputs;
 
-    public function __construct() {
+    public function __construct($token = "") {
         $this->_inputs = array();
+        $this->_token = $token;
     }
 
     /**
@@ -58,6 +61,6 @@ class Form {
             echo $input->render();
         }
         echo "<li><button type='submit'>Submit</button></li></ol>
-          <input type='hidden' name='_token' value='".csrf_token()."' /></form>";
+          <input type='hidden' name='_token' value='{$this->_token}' /></form>";
     }
 }
